@@ -382,15 +382,75 @@
   .sidebar, .toolbar { display: none !important; }
   .preview-area { display: block; background: none; }
   .cv-viewport { padding: 0; overflow: visible; display: block; }
+
   .cv-document {
     box-shadow: none !important;
     width: 210mm !important;
     min-height: auto !important;
     height: auto !important;
     overflow: visible !important;
+    font-size: 9.7pt !important;
+    line-height: 1.42 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     break-inside: auto;
     page-break-inside: auto;
   }
+
+  .cv-modelo-pdf { padding: 12mm 13mm !important; }
+  .cv-classic { padding: 14mm 16mm !important; }
+  .cv-executive { padding: 14mm 16mm !important; }
+  .cv-minimal { padding: 15mm 17mm !important; }
+
+  .cv-sidebar { min-height: auto !important; overflow: visible !important; }
+  .sb-aside { width: 35% !important; min-height: auto !important; padding: 14mm 8mm 10mm !important; }
+  .sb-main { padding: 14mm 11mm !important; }
+
+  .cr-header { padding: 14mm 16mm 10mm !important; }
+  .cr-body { padding: 12mm 16mm !important; }
+
+  .mp-section,
+  .cl-section,
+  .sb-section,
+  .sb-main-section,
+  .ex-section,
+  .cr-section {
+    margin-bottom: 11px !important;
+  }
+
+  .mn-section-title,
+  .mp-heading,
+  .cl-section-title,
+  .sb-section-label,
+  .sb-main-title,
+  .ex-section-title,
+  .cr-badge {
+    margin-bottom: 6px !important;
+  }
+
+  .mp-item,
+  .cl-item,
+  .sb-exp-item,
+  .ex-item,
+  .cr-card,
+  .mn-row {
+    margin-bottom: 8px !important;
+  }
+
+  .cv-document p,
+  .cv-document li,
+  .cv-document span {
+    overflow-wrap: anywhere;
+  }
+
+  .mp-row span,
+  .cl-date,
+  .sb-exp-date,
+  .ex-date,
+  .cr-date {
+    white-space: normal !important;
+  }
+
   .sb-aside { min-height: auto; }
 
   .mp-section,
