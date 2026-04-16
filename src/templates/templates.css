@@ -384,12 +384,75 @@
   .cv-viewport { padding: 0; overflow: visible; display: block; }
   .cv-document {
     box-shadow: none !important;
-    width: 100% !important;
-    min-height: auto;
-    page-break-inside: avoid;
+    width: 210mm !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    break-inside: auto;
+    page-break-inside: auto;
   }
   .sb-aside { min-height: auto; }
 
+  .mp-section,
+  .cl-section,
+  .sb-section,
+  .sb-main-section,
+  .ex-section,
+  .cr-section,
+  .mn-section,
+  .mp-top,
+  .cl-header,
+  .ex-header,
+  .mn-header,
+  .cr-header {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  .mp-heading,
+  .cl-section-title,
+  .sb-section-label,
+  .sb-main-title,
+  .ex-section-title,
+  .mn-section-title,
+  .cr-badge {
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  .cv-sidebar,
+  .cl-two-col,
+  .cr-two-col,
+  .ex-bottom-cols,
+  .mp-skills-grid {
+    display: block !important;
+  }
+
+  .sb-aside,
+  .sb-main,
+  .cl-two-col > div,
+  .cr-two-col > div,
+  .ex-bottom-cols > div,
+  .mp-skills-grid > div {
+    width: auto !important;
+  }
+
+  .sb-main,
+  .cl-two-col > div + div,
+  .cr-two-col > div + div,
+  .ex-bottom-cols > div + div,
+  .mp-skills-grid > div + div {
+    margin-top: 12px;
+  }
+
   /* Avoid page breaks inside items */
-  .cl-item, .sb-exp-item, .ex-item, .cr-card, .mn-row { page-break-inside: avoid; }
+  .mp-item,
+  .cl-item,
+  .sb-exp-item,
+  .ex-item,
+  .cr-card,
+  .mn-row {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
 }
