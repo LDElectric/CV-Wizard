@@ -375,7 +375,7 @@
    PRINT MEDIA — all templates
 ════════════════════════════════════════ */
 @media print {
-  @page { margin: 0; size: A4; }
+  @page { margin: 6mm 0 8mm 0; size: A4; }
 
   body, html { background: white !important; overflow: visible !important; }
   .app-container { display: block; background: none; height: auto; }
@@ -389,6 +389,8 @@
     min-height: auto !important;
     height: auto !important;
     overflow: visible !important;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
     font-size: 9.7pt !important;
     line-height: 1.42 !important;
     -webkit-print-color-adjust: exact;
