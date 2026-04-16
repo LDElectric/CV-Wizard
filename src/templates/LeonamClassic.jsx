@@ -46,8 +46,8 @@ export default function LeonamClassic({ cv, formatDescription }) {
         <div className="cl-section">
           <div className="cl-section-title">Experiência Profissional</div>
           {experience.map(exp => (
-            <div className="cl-item" key={exp.id}>
-              <div className="cl-item-row">
+            <div className="cl-item" key={exp.id} data-print-exp-item="true">
+              <div className="cl-item-row" data-print-exp-header="true">
                 <div>
                   <span className="cl-org">{exp.org}</span>
                   {exp.role && <span className="cl-role"> · {exp.role}</span>}
@@ -55,7 +55,7 @@ export default function LeonamClassic({ cv, formatDescription }) {
                 <span className="cl-date">{exp.date}</span>
               </div>
               {exp.location && <div className="cl-location">{exp.location}</div>}
-              <div className="cl-desc">{formatDescription(exp.description)}</div>
+              <div className="cl-desc" data-print-exp-body="true">{formatDescription(exp.description)}</div>
             </div>
           ))}
         </div>

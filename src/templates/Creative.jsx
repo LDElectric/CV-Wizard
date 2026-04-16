@@ -35,18 +35,20 @@ export default function Creative({ cv, formatDescription }) {
           <div className="cr-section">
             <div className="cr-badge" style={{ backgroundColor: 'var(--cv-accent)' }}>Experiência</div>
             {experience.map(exp => (
-              <div className="cr-card" key={exp.id} style={{ borderLeftColor: 'var(--cv-accent)' }}>
-                <div className="cr-card-row">
-                  <div>
-                    <span className="cr-org">{exp.org}</span>
-                    {exp.role && <div className="cr-role">{exp.role}</div>}
-                  </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <span className="cr-date">{exp.date}</span>
-                    {exp.location && <div className="cr-loc">{exp.location}</div>}
+              <div className="cr-card" key={exp.id} style={{ borderLeftColor: 'var(--cv-accent)' }} data-print-exp-item="true">
+                <div data-print-exp-header="true">
+                  <div className="cr-card-row">
+                    <div>
+                      <span className="cr-org">{exp.org}</span>
+                      {exp.role && <div className="cr-role">{exp.role}</div>}
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <span className="cr-date">{exp.date}</span>
+                      {exp.location && <div className="cr-loc">{exp.location}</div>}
+                    </div>
                   </div>
                 </div>
-                <div className="cl-desc">{formatDescription(exp.description)}</div>
+                <div className="cl-desc" data-print-exp-body="true">{formatDescription(exp.description)}</div>
               </div>
             ))}
           </div>

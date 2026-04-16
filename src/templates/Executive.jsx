@@ -39,16 +39,18 @@ export default function Executive({ cv, formatDescription }) {
         <div className="ex-section">
           <div className="ex-section-title">Experiência Profissional</div>
           {experience.map(exp => (
-            <div className="ex-item" key={exp.id}>
-              <div className="ex-item-header">
-                <div>
-                  <span className="ex-org">{exp.org}</span>
-                  {exp.location && <span className="ex-loc"> — {exp.location}</span>}
+            <div className="ex-item" key={exp.id} data-print-exp-item="true">
+              <div data-print-exp-header="true">
+                <div className="ex-item-header">
+                  <div>
+                    <span className="ex-org">{exp.org}</span>
+                    {exp.location && <span className="ex-loc"> — {exp.location}</span>}
+                  </div>
+                  <span className="ex-date">{exp.date}</span>
                 </div>
-                <span className="ex-date">{exp.date}</span>
+                {exp.role && <div className="ex-role">{exp.role}</div>}
               </div>
-              {exp.role && <div className="ex-role">{exp.role}</div>}
-              <div className="cl-desc">{formatDescription(exp.description)}</div>
+              <div className="cl-desc" data-print-exp-body="true">{formatDescription(exp.description)}</div>
             </div>
           ))}
         </div>

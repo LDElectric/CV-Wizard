@@ -94,8 +94,8 @@ export default function ModernSidebar({ cv, formatDescription }) {
           <div className="sb-main-section">
             <div className="sb-main-title">Experiência Profissional</div>
             {experience.map(exp => (
-              <div className="sb-exp-item" key={exp.id}>
-                <div className="sb-exp-row">
+              <div className="sb-exp-item" key={exp.id} data-print-exp-item="true">
+                <div className="sb-exp-row" data-print-exp-header="true">
                   <div>
                     <span className="sb-exp-org">{exp.org}</span>
                     {exp.role && <div className="sb-exp-role">{exp.role}</div>}
@@ -105,7 +105,7 @@ export default function ModernSidebar({ cv, formatDescription }) {
                     {exp.location && <div className="sb-exp-loc">{exp.location}</div>}
                   </div>
                 </div>
-                <div className="cl-desc">{formatDescription(exp.description)}</div>
+                <div className="cl-desc" data-print-exp-body="true">{formatDescription(exp.description)}</div>
               </div>
             ))}
           </div>

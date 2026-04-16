@@ -504,4 +504,9 @@
     break-inside: auto;
     page-break-inside: auto;
   }
+
+  .print-force-break-before {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
 }

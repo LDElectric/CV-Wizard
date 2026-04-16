@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { COLORS, FONTS } from '../data';
 import LeonamClassic from '../templates/LeonamClassic';
 import ModernSidebar from '../templates/ModernSidebar';
@@ -5,6 +6,7 @@ import Executive from '../templates/Executive';
 import Creative from '../templates/Creative';
 import Minimal from '../templates/Minimal';
 import ModeloPdf from '../templates/ModeloPdf';
+import { applySmartPrintBreaks, clearSmartPrintBreaks } from '../utils/printPagination';
 import '../templates/templates.css';
 
 const TEMPLATE_MAP = {
@@ -87,6 +89,12 @@ export default function Preview({ cv, updateTheme }) {
   const previewCv = withPreviewFallback(cv);
   const TemplateComponent = TEMPLATE_MAP[cv.theme.template] || LeonamClassic;
 
+  useEffect(() => {
+    const cleanup = () => clearSmartPrintBreaks();
+    window.addEventListener('afterprint', cleanup);
+    return () => window.removeEventListener('afterprint', cleanup);
+  }, []);
+
   const formatDescription = (text) => {
     if (!text) return null;
     const lines = text.split('\n').filter(l => l.trim());
@@ -94,6 +102,11 @@ export default function Preview({ cv, updateTheme }) {
       return <ul className="cv-desc-list">{lines.map((line, i) => <li key={i}>{line}</li>)}</ul>;
     }
     return lines.map((line, i) => <p key={i} style={{ marginBottom: '3px', textAlign: 'justify' }}>{line}</p>);
+  };
+
+  const handlePrint = () => {
+    applySmartPrintBreaks({ minimumDescriptionLines: 2 });
+    window.print();
   };
 
   return (
@@ -119,7 +132,7 @@ export default function Preview({ cv, updateTheme }) {
             {FONTS.map(f => <option key={f.value} value={f.value}>{f.label.split(' ')[0]}</option>)}
           </select>
         </div>
-        <button className="btn" onClick={() => window.print()}>🖨️ Exportar PDF</button>
+        <button className="btn" onClick={handlePrint}>🖨️ Exportar PDF</button>
       </div>
 
       <div className="cv-viewport">

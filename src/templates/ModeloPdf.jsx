@@ -68,13 +68,13 @@ export default function ModeloPdf({ cv, formatDescription }) {
         <section className="mp-section">
           <h2 className="mp-heading">EXPERIÊNCIA</h2>
           {experience.map((item) => (
-            <div key={item.id} className="mp-item mp-item-large">
-              <div className="mp-row">
+            <div key={item.id} className="mp-item mp-item-large" data-print-exp-item="true">
+              <div className="mp-row" data-print-exp-header="true">
                 <strong>{item.role}</strong>
                 <span>{item.date}</span>
               </div>
               <p>{item.org}{item.location ? `, ${item.location}` : ''}</p>
-              <div className="mp-desc">{formatDescription(item.description)}</div>
+              <div className="mp-desc" data-print-exp-body="true">{formatDescription(item.description)}</div>
             </div>
           ))}
         </section>

@@ -44,15 +44,17 @@ export default function Minimal({ cv, formatDescription }) {
         <div>
           <div className="mn-section-title">Experiência</div>
           {experience.map(exp => (
-            <div className="mn-row" key={exp.id}>
+            <div className="mn-row" key={exp.id} data-print-exp-item="true">
               <div className="mn-label">
                 <div className="mn-date">{exp.date}</div>
                 {exp.location && <div className="mn-sub">{exp.location}</div>}
               </div>
               <div className="mn-content">
-                <div className="mn-org">{exp.org}</div>
-                {exp.role && <div className="mn-role">{exp.role}</div>}
-                <div className="cl-desc" style={{ marginTop: '4px' }}>{formatDescription(exp.description)}</div>
+                <div data-print-exp-header="true">
+                  <div className="mn-org">{exp.org}</div>
+                  {exp.role && <div className="mn-role">{exp.role}</div>}
+                </div>
+                <div className="cl-desc" style={{ marginTop: '4px' }} data-print-exp-body="true">{formatDescription(exp.description)}</div>
               </div>
             </div>
           ))}
